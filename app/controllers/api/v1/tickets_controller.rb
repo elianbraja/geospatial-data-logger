@@ -9,6 +9,8 @@ module Api
         ticket = create_ticket
         create_excavator(ticket)
         render json: { success: true, message: 'Geospatial Data Imported successfully!' }
+      rescue ActiveRecord::RecordInvalid => e
+        render json: { error: e.message }, status: :unprocessable_entity
       rescue StandardError
         render json: { error: 'An unexpected error occurred!' }, status: :internal_server_error
       end

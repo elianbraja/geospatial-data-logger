@@ -19,4 +19,14 @@
 class Ticket < ApplicationRecord
   include AllAttributesPresentable
   has_one :excavator
+
+  validate :valid_polygon_format
+
+  def valid_polygon_format
+    polygon_regex = /\APOLYGON\(\(([-+]?\d*\.?\d+ [-+]?\d*\.?\d+(, ?[-+]?\d*\.?\d+ [-+]?\d*\.?\d+)+)\)\)\z/
+
+    return if well_known_text.match?(polygon_regex)
+
+    errors.add(:well_known_text, 'must be in the correct POLYGON format')
+  end
 end
