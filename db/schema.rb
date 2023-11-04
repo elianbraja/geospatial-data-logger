@@ -17,9 +17,9 @@ ActiveRecord::Schema[7.1].define(version: 20_231_104_125_914) do
   enable_extension 'plpgsql'
 
   create_table 'excavators', force: :cascade do |t|
-    t.string 'company_name'
-    t.text 'address'
-    t.boolean 'crew_onsite'
+    t.string 'company_name', null: false
+    t.text 'address', null: false
+    t.boolean 'crew_onsite', null: false
     t.bigint 'ticket_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
@@ -27,14 +27,14 @@ ActiveRecord::Schema[7.1].define(version: 20_231_104_125_914) do
   end
 
   create_table 'tickets', force: :cascade do |t|
-    t.string 'request_number'
-    t.string 'sequence_number'
-    t.string 'request_type'
-    t.string 'request_action'
-    t.datetime 'response_due_date_time'
-    t.string 'primary_service_area_code'
-    t.string 'additional_service_area_codes', default: [], array: true
-    t.text 'well_known_text'
+    t.string 'request_number', null: false
+    t.string 'sequence_number', null: false
+    t.string 'request_type', null: false
+    t.string 'request_action', null: false
+    t.datetime 'response_due_date_time', null: false
+    t.string 'primary_service_area_code', null: false
+    t.string 'additional_service_area_codes', default: [], null: false, array: true
+    t.text 'well_known_text', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
   end

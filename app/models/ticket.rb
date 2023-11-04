@@ -17,5 +17,6 @@
 #  updated_at                    :datetime         not null
 #
 class Ticket < ApplicationRecord
+  include AllAttributesPresentable
   has_one :excavator
 end
