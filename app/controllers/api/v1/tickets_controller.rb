@@ -1,27 +1,25 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class TicketsController < ApplicationController
       before_action :prepare_params, only: [:create]
 
       def create
-        begin
-          ticket = create_ticket
-          create_excavator(ticket)
-          render json: { success: true, message: 'Geospatial Data Imported successfully!' }
-        rescue StandardError
-          render json: { error: "An unexpected error occurred!" }, status: :internal_server_error
-        end
+        ticket = create_ticket
+        create_excavator(ticket)
+        render json: { success: true, message: 'Geospatial Data Imported successfully!' }
+      rescue StandardError
+        render json: { error: 'An unexpected error occurred!' }, status: :internal_server_error
       end
 
       private
 
       def prepare_params
-        begin
-          @ticket_params = TicketSchema.call(ticket_params).to_h
-          @excavator_params = ExcavatorSchema.call(excavator_params).to_h
-        rescue Dry::Struct::Error => e
-          render json: { error: e.message }, status: :unprocessable_entity
-        end
+        @ticket_params = TicketSchema.call(ticket_params).to_h
+        @excavator_params = ExcavatorSchema.call(excavator_params).to_h
+      rescue Dry::Struct::Error => e
+        render json: { error: e.message }, status: :unprocessable_entity
       end
 
       def create_ticket
@@ -38,7 +36,7 @@ module Api
                        response_due_date_time: params.dig(:date_times, :response_due_date_time),
                        primary_service_area_code: params.dig(:service_area, :primary_service_area_code, :sa_code),
                        additional_service_area_codes: params.dig(:service_area, :additional_service_area_codes, :sa_code),
-                       well_known_text: params.dig(:excavation_info, :digsite_info, :well_known_text),
+                       well_known_text: params.dig(:excavation_info, :digsite_info, :well_known_text)
                      })
       end
 

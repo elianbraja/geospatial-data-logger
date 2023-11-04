@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class TicketSchema < Dry::Struct
-  transform_keys(&:underscore)
   transform_keys(&:to_sym)
 
   attribute :request_number, Dry::Types['strict.string']
