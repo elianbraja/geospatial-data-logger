@@ -1,0 +1,11 @@
+Documentation:
+  Enabled: false
+
+Metrics:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
