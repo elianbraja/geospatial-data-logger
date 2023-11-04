@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,32 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_231_104_125_914) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_04_125914) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'excavators', force: :cascade do |t|
-    t.string 'company_name'
-    t.text 'address'
-    t.boolean 'crew_on_site'
-    t.bigint 'ticket_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['ticket_id'], name: 'index_excavators_on_ticket_id'
+  create_table "excavators", force: :cascade do |t|
+    t.string "company_name"
+    t.text "address"
+    t.boolean "crew_onsite"
+    t.bigint "ticket_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_excavators_on_ticket_id"
   end
 
-  create_table 'tickets', force: :cascade do |t|
-    t.string 'request_number'
-    t.string 'sequence_number'
-    t.string 'request_type'
-    t.string 'request_action'
-    t.datetime 'response_due_date_time'
-    t.string 'primary_service_area_code'
-    t.string 'additional_service_area_codes', default: [], array: true
-    t.text 'well_known_text'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "tickets", force: :cascade do |t|
+    t.string "request_number"
+    t.string "sequence_number"
+    t.string "request_type"
+    t.string "request_action"
+    t.datetime "response_due_date_time"
+    t.string "primary_service_area_code"
+    t.string "additional_service_area_codes", default: [], array: true
+    t.text "well_known_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key 'excavators', 'tickets'
+  add_foreign_key "excavators", "tickets"
 end

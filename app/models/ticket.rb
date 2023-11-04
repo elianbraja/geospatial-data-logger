@@ -17,5 +17,5 @@
 #  updated_at                    :datetime         not null
 #
 class Ticket < ApplicationRecord
-  has_many :excavators
+  has_one :excavator
 end
