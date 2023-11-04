@@ -20,8 +20,8 @@ module Api
       def prepare_params
         @ticket_params = TicketSchema.call(ticket_params).to_h
         @excavator_params = ExcavatorSchema.call(excavator_params).to_h
-      rescue Dry::Struct::Error => e
-        render json: { error: e.message }, status: :unprocessable_entity
+      rescue Dry::Struct::Error
+        render json: { error: 'Invalid request structure or data types' }, status: :unprocessable_entity
       end
 
       def create_ticket
