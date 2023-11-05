@@ -29,17 +29,25 @@ module Api
       end
 
       def create_excavator(ticket)
-        ticket.create_excavator!(@excavator_params)
+        ticket.create_excavator!(transformed_excavator_params(@excavator_params))
       end
 
       def transformed_ticket_params(params)
-        params.except(:date_times, :service_area, :excavation_info)
-              .merge({
-                       response_due_date_time: params.dig(:date_times, :response_due_date_time),
-                       primary_service_area_code: params.dig(:service_area, :primary_service_area_code, :sa_code),
-                       additional_service_area_codes: params.dig(:service_area, :additional_service_area_codes, :sa_code),
-                       well_known_text: params.dig(:excavation_info, :digsite_info, :well_known_text)
-                     })
+        ticket_info = {
+          response_due_date_time: params.dig(:date_times, :response_due_date_time),
+          primary_service_area_code: params.dig(:service_area, :primary_service_area_code, :sa_code),
+          additional_service_area_codes: params.dig(:service_area, :additional_service_area_codes, :sa_code),
+          well_known_text: params.dig(:excavation_info, :digsite_info, :well_known_text)
+        }
+
+        params.except(:date_times, :service_area, :excavation_info).merge(ticket_info)
+      end
+
+      def transformed_excavator_params(params)
+        address_info = {
+          address: "#{params[:address]}, #{params[:city]}, #{params[:state]}, #{params[:zip]}"
+        }
+        params.slice(:company_name, :crew_onsite).merge(address_info)
       end
 
       def ticket_params
@@ -61,6 +69,9 @@ module Api
         params.deep_transform_keys(&:underscore).require(:excavator).permit(
           :company_name,
           :address,
+          :city,
+          :state,
+          :zip,
           :crew_onsite
         )
       end
