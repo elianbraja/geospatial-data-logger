@@ -19,6 +19,10 @@
 class Ticket < ApplicationRecord
   include AllAttributesPresentable
   has_one :excavator
+  enum request_type: {
+    Normal: 0,
+    Urgent: 1
+  }
 
   validate :valid_polygon_format
 

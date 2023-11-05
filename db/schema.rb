@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 20_231_104_125_914) do
   create_table 'tickets', force: :cascade do |t|
     t.string 'request_number', null: false
     t.string 'sequence_number', null: false
-    t.string 'request_type', null: false
+    t.integer 'request_type', null: false
     t.string 'request_action', null: false
     t.datetime 'response_due_date_time', null: false
     t.string 'primary_service_area_code', null: false
