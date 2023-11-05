@@ -18,7 +18,7 @@
 #
 class Ticket < ApplicationRecord
   include AllAttributesPresentable
-  has_one :excavator
+  has_one :excavator, dependent: :destroy
   enum request_type: {
     Normal: 0,
     Urgent: 1
