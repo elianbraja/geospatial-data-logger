@@ -8,6 +8,6 @@ module AllAttributesPresentable
   end
 
   def all_attributes_present
-    errors.add(:base, 'All attributes must be present') if attributes.except('id', 'created_at', 'updated_at').values.any?(&:blank?)
+    errors.add(:base, 'All attributes must be present') if attributes.except('id', 'created_at', 'updated_at').values.any?(&:nil?)
   end
 end

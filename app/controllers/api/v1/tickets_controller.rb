@@ -11,8 +11,8 @@ module Api
         render json: { success: true, message: 'Geospatial Data Imported successfully!' }
       rescue ActiveRecord::RecordInvalid, ArgumentError => e
         render json: { error: e.message }, status: :unprocessable_entity
-      rescue StandardError
-        render json: { error: 'An unexpected error occurred!' }, status: :internal_server_error
+      rescue StandardError => e
+        render json: { error: e.message }, status: :internal_server_error
       end
 
       private

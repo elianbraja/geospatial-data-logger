@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Application Title</title>
-  <%= stylesheet_link_tag 'stylesheet', media: 'all' %>
+  <title>GeospatialLogger</title>
+  <%= favicon_link_tag 'logo.png' %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
- <div>eliiii</div>
+  <%= render partial: 'partials/header'%>
 </header>
 
 <main>

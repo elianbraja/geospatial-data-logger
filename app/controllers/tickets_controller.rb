@@ -3,7 +3,7 @@
 class TicketsController < ActionController::Base
   layout 'application'
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.order(created_at: :desc)
   end
 
   def show
