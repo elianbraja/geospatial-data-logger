@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Tickets</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Request Number</th>
+      <th>Request Type</th>
+      <th>Request Action</th>
+      <th>Response Due Date Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+<!--        <td><%#= link_to ticket.id, ticket_path(ticket) %></td>-->
+        <td><%= ticket.id %></td>
+        <td><%= ticket.request_number %></td>
+        <td><%= ticket.request_type %></td>
+        <td><%= ticket.request_action %></td>
+        <td><%= ticket.response_due_date_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
