@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-class TicketsController < ActionController::Base
-  layout 'application'
+class TicketsController < ApplicationController
   def index
     @tickets = Ticket.order(created_at: :desc)
   end
