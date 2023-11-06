@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class TicketsController < ApplicationController
+    class TicketsController < ActionController::API
       before_action :prepare_params, only: [:create]
 
       def create
