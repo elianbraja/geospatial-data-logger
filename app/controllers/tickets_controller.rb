@@ -2,7 +2,7 @@
 
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.order(created_at: :desc).includes(:excavator)
+    @tickets = Ticket.includes(:excavator).order(created_at: :desc)
   end
 
   def show
