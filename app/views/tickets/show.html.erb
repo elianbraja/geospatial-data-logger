@@ -1,1 +1,57 @@
-<div>MAP</div>
+<div class="container">
+  <div class="ticket-details">
+    <h2>Ticket Details</h2>
+    <table class="table">
+      <tbody>
+      <tr>
+        <td><strong>Request Number:</strong></td>
+        <td><%= @ticket.request_number %></td>
+      </tr>
+      <tr>
+        <td><strong>Sequence Number:</strong></td>
+        <td>
+          <div class="type-indicator">
+            <%= @ticket.request_type %>
+            <div class="indicator-icon" style="background: <%= @ticket.request_type == "Normal" ? "green" : "red" %>"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Request Type:</strong></td>
+        <td><%= @ticket.request_type %></td>
+      </tr>
+      <tr>
+        <td><strong>Request Action:</strong></td>
+        <td><%= @ticket.request_action %></td>
+      </tr>
+      <tr>
+        <td><strong>Response Due Date Time:</strong></td>
+        <td><%= @ticket.response_due_date_time.strftime("%B %e, %Y %l:%M %p") %></td>
+      </tr>
+      <tr>
+        <td><strong>Primary Service Area Code:</strong></td>
+        <td><%= @ticket.primary_service_area_code %></td>
+      </tr>
+      <tr>
+        <td><strong>Additional Service Area Codes:</strong></td>
+        <td><%= @ticket.additional_service_area_codes.join(" - ") %></td>
+      </tr>
+      <tr>
+        <td><strong>Company Name:</strong></td>
+        <td><%= @ticket.excavator.company_name %></td>
+      </tr>
+      <tr>
+        <td><strong>Excavator Address:</strong></td>
+        <td><%= @ticket.excavator.address %></td>
+      </tr>
+      <tr>
+        <td><strong>Crew Onsite:</strong></td>
+        <td><%= image_tag "#{@ticket.excavator.crew_onsite}.png", width: 20 %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="ticket-image">
+    <%= mapbox_image_url(@ticket.well_known_text) %>
+  </div>
+</div>

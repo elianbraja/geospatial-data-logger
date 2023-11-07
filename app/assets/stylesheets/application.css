@@ -1,4 +1,4 @@
-@import "tickets";
+@import "tickets/tickets.css";
 @import "partials/header.css";
 
 body {
