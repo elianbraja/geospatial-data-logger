@@ -25,7 +25,7 @@ To set up the application locally, follow these steps:
 2. Set the Ruby version to 3.2.2: `rvm use 3.2.2`.
 3. Install necessary gems: `bundle install`.
 4. Configure the database and run migrations: `rake db:create && rake db:migrate`.
-5. Set up credentials: Run `EDITOR="nano" rails credentials:edit` and provide your Mapbox API key. You can obtain one from the Mapbox platform or contact the project owner for assistance.
+5. Set up credentials: Run `EDITOR="nano" rails credentials:edit` and provide your Mapbox API key. You can obtain one from the Mapbox platform or contact [elianbraja@gmail.com](mailto:elianbraja@gmail.com) for assistance.
 6. Start the server: `rails s`.
 
 ## Gems and Third-Party Libraries
@@ -81,6 +81,7 @@ rails test
 # About the Author
 
 - **Name**: Elian Braja
+- **Email**: [elianbraja@gmail.com](mailto:elianbraja@gmail.com)
 - **Personal Website**: [www.elianbraja.com](https://www.elianbraja.com)
 - **CV**: [Link to CV](https://www.elianbraja.com/wp-content/uploads/2023/05/CV-Elian-Braja.pdf)
 
