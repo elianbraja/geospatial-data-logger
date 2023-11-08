@@ -5,14 +5,14 @@
 # Table name: tickets
 #
 #  id                            :bigint           not null, primary key
-#  request_number                :string
-#  sequence_number               :string
-#  request_type                  :string
-#  request_action                :string
-#  response_due_date_time        :datetime
-#  primary_service_area_code     :string
-#  additional_service_area_codes :string           default([]), is an Array
-#  well_known_text               :text
+#  request_number                :string           not null
+#  sequence_number               :string           not null
+#  request_type                  :integer          not null
+#  request_action                :string           not null
+#  response_due_date_time        :datetime         not null
+#  primary_service_area_code     :string           not null
+#  additional_service_area_codes :string           default([]), not null, is an Array
+#  well_known_text               :text             not null
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
 #
