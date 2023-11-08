@@ -42,6 +42,9 @@ gem 'bootsnap', require: false
 
 gem 'sprockets-rails'
 
+# geospatial data library for Ruby.
+gem 'rgeo'
+
 gem 'webpacker'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
