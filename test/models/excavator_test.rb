@@ -15,7 +15,8 @@
 require 'test_helper'
 
 class ExcavatorTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'excavator ticket with all attributes' do
+    excavator = excavators(:one)
+    assert excavator.valid?
+  end
 end

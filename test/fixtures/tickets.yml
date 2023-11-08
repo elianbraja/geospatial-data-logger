@@ -16,21 +16,31 @@
 #
 
 one:
-  request_number: MyString
-  sequence_number: MyString
-  request_type: MyString
-  request_action: MyString
+  request_number: 123456
+  sequence_number: 123456
+  request_type: Normal
+  request_action: Restake
   response_due_date_time: 2023-11-04 13:58:41
-  primary_service_area_code: MyString
-  additional_service_area_codes: MyText
-  well_known_text: MyText
+  primary_service_area_code: "ZZGL103"
+  additional_service_area_codes: ["ZZL01", "ZZL02", "ZZL03"]
+  well_known_text: "POLYGON((-0.2 51.4786, -0.1577 51.4770, -0.1595 51.4755, -0.1580 51.4734, -0.1550 51.4749, -0.1527 51.4770,-0.1552 51.4786))"
 
-two:
-  request_number: MyString
-  sequence_number: MyString
-  request_type: MyString
-  request_action: MyString
+with_valid_polygon:
+  request_number: 123456
+  sequence_number: 123456
+  request_type: Normal
+  request_action: Restake
   response_due_date_time: 2023-11-04 13:58:41
-  primary_service_area_code: MyString
-  additional_service_area_codes: MyText
-  well_known_text: MyText
+  primary_service_area_code: "ZZGL103"
+  additional_service_area_codes: ["ZZL01", "ZZL02", "ZZL03"]
+  well_known_text: "POLYGON((-0.2 51.4786, -0.1577 51.4770, -0.1595 51.4755, -0.1580 51.4734, -0.1550 51.4749, -0.1527 51.4770,-0.1552 51.4786))"
+
+with_invalid_polygon:
+  request_number: 123456
+  sequence_number: 123456
+  request_type: Normal
+  request_action: Restake
+  response_due_date_time: 2023-11-04 13:58:41
+  primary_service_area_code: "ZZGL103"
+  additional_service_area_codes: ["ZZL01", "ZZL02", "ZZL03"]
+  well_known_text: "POLYGON((-0.2 51.4786, -0.1577 51.4770, -0.1595 51.4755, -0.1580 51.4734, -0.1550 51.4749, -0.1527 51.4770,-0.1552, 51.4786))"

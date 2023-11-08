@@ -19,7 +19,19 @@
 require 'test_helper'
 
 class TicketTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'valid ticket with all attributes' do
+    ticket = tickets(:one)
+    assert ticket.valid?
+  end
+
+  test 'ticket with valid POLYGON' do
+    ticket = tickets(:with_valid_polygon)
+    assert ticket.valid?
+  end
+
+  test 'ticket with invalid POLYGON' do
+    ticket = tickets(:with_invalid_polygon)
+    assert_not ticket.valid?
+    assert_includes ticket.errors.messages[:well_known_text], 'must be in the correct POLYGON format'
+  end
 end

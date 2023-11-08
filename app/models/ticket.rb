@@ -28,7 +28,11 @@ class Ticket < ApplicationRecord
 
   def valid_polygon_format
     factory = RGeo::Geos.factory
-    polygon = RGeo::WKRep::WKTParser.new(factory, support_ewkt: true).parse(well_known_text)
-    errors.add(:well_known_text, 'must be in the correct POLYGON format') unless polygon.valid?
+    begin
+      polygon = RGeo::WKRep::WKTParser.new(factory, support_ewkt: true).parse(well_known_text)
+      errors.add(:well_known_text, 'must be in the correct POLYGON format') unless polygon.valid?
+    rescue RGeo::Error::ParseError
+      errors.add(:well_known_text, 'must be in the correct POLYGON format')
+    end
   end
 end
