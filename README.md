@@ -82,5 +82,5 @@ rails test
 
 - **Name**: Elian Braja
 - **Personal Website**: [www.elianbraja.com](https://www.elianbraja.com)
-- **CV**: [Link to CV](link_to_cv)
+- **CV**: [Link to CV](https://www.elianbraja.com/wp-content/uploads/2023/05/CV-Elian-Braja.pdf)
 
